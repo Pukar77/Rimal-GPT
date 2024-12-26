@@ -5,6 +5,11 @@ function Homepage() {
     prompt: "",
   });
   const [ans, setAns] = useState("");
+  // const [loading1, setLoading1] = useState(false);
+
+  // const set = () => {
+
+  // }
 
   const apicall = async () => {
     console.log(data);
@@ -35,6 +40,7 @@ function Homepage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // loading();
     apicall();
   };
 
