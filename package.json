@@ -7,5 +7,8 @@
     "start": "npm run start-client & npm run start-server",
     "start-client": "cd gpt && npm start",
     "start-server": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4"
   }
 }
