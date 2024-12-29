@@ -5,11 +5,12 @@ function Homepage() {
     prompt: "",
   });
   const [ans, setAns] = useState("");
-  // const [loading1, setLoading1] = useState(false);
 
-  // const set = () => {
+  const [loading1, setLoading1] = useState("Submit");
 
-  // }
+  const loading = () => {
+    setLoading1("Generating...");
+  };
 
   const apicall = async () => {
     console.log(data);
@@ -26,6 +27,7 @@ function Homepage() {
     let data1 = await response.json();
     console.log(data1);
     setAns(data1.generated_text);
+    setLoading1("Submit");
   };
 
   const handleinput = (e) => {
@@ -40,7 +42,7 @@ function Homepage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // loading();
+    loading();
     apicall();
   };
 
@@ -79,7 +81,7 @@ function Homepage() {
           onClick={handleSubmit}
           className="mt-6 px-8 py-3 bg-white text-pink-500 font-bold text-lg rounded-lg shadow-lg hover:bg-gray-100 transition duration-300"
         >
-          Submit
+          {loading1}
         </button>
         {ans && (
           <div className="mt-12 bg-white text-gray-900 rounded-lg p-8 shadow-lg w-full max-w-3xl">

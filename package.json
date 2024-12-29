@@ -2,5 +2,10 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.7"
+  },
+  "scripts": {
+    "start": "npm run start-client & npm run start-server",
+    "start-client": "cd gpt && npm start",
+    "start-server": "cd backend && npm start"
   }
 }
