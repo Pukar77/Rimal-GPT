@@ -8,6 +8,12 @@ function Homepage() {
 
   const [loading1, setLoading1] = useState("Submit");
 
+  const handlekeydown = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   const loading = () => {
     setLoading1("Generating...");
   };
@@ -41,7 +47,7 @@ function Homepage() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     loading();
     apicall();
   };
@@ -75,6 +81,7 @@ function Homepage() {
             placeholder="Enter your prompt here..."
             value={data.prompt}
             onChange={handleinput}
+            onKeyDown={handlekeydown}
           />
         </div>
         <button
