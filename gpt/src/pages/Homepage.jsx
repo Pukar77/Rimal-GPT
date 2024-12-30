@@ -20,7 +20,7 @@ function Homepage() {
 
   const apicall = async () => {
     console.log(data);
-    let response = await fetch("http://localhost:3000/api/content", {
+    let response = await fetch("https://rimalgpt.onrender.com/api/content", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
