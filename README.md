@@ -1,1 +1,1 @@
-https://rimal-gpt-mmww.onrender.com/
+https://rimalgpt.pukarrimal.com.np/
