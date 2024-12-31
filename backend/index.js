@@ -2,7 +2,27 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
 app.use(express.json());
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://rimalgpt.onrender.com/api/content",
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin (like mobile apps or Postman)
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   return res.json({
@@ -41,6 +61,6 @@ app.post("/api/content", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(4321, () => {
   console.log("Servering is running successfully");
 });
